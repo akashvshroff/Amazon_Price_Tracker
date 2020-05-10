@@ -3,6 +3,7 @@ import smtplib
 import time
 import sys
 from bs4 import BeautifulSoup
+from secret import *
 
 
 class PriceTracker:
@@ -11,13 +12,12 @@ class PriceTracker:
         self.target = target
         self.smail = smail
         self.headers = {
-            "User-Agent": "GET YOUR USER-AGENT DATA BY SEARCHING MY USER AGENT ON YOUR BROWSER"
+            "User-Agent": useragent
         }
         self.conn = smtplib.SMTP('smtp.gmail.com', 587)
         self.conn.ehlo()
         self.conn.starttls()
-        self.conn.login(
-            'YOUR EMAIL', 'YOUR APP PASSWORD - https://support.google.com/accounts/answer/185833?hl=en')
+        self.conn.login(my_email, app_password)
         self.driver()
 
     def driver(self):
