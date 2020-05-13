@@ -14,6 +14,13 @@ class PriceTracker:
         self.headers = {
             "User-Agent": useragent  # Get yours by searching 'My user agent' on your browser
         }
+        self.my_email = my_email
+        self.app_password = app_password
+        self.conn = smtplib.SMTP('smtp.gmail.com', 587)
+        self.conn.ehlo()
+        self.conn.starttls()
+        # Get your app password from https://support.google.com/accounts/answer/185833?hl=en
+        self.conn.login(my_email, app_password)
 
     def driver(self):
         while True:
