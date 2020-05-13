@@ -21,6 +21,7 @@ class PriceTracker:
         self.conn.starttls()
         # Get your app password from https://support.google.com/accounts/answer/185833?hl=en
         self.conn.login(my_email, app_password)
+        self.driver()
 
     def driver(self):
         while True:
