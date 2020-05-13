@@ -43,8 +43,9 @@ class PriceTracker:
             return
 
     def send_mail(self):
+        self.url_encoded = string.encoding('ascii', 'ignore')
         self.msg = 'Subject:Amazon Product Available!\n\nYour product: {} is now available for price: {}.\nBuy now at url: {}'.format(
-            self.title, self.price, self.url)
+            self.title, self.price, self.url_encoded)
         self.conn.sendmail('akushroff@gmail.com', self.smail, self.msg)
         self.conn.quit()
         sys.exit()
